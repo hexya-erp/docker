@@ -1,6 +1,4 @@
 version: '3'
-networks:
-  default:
 
 services:
   db:
@@ -8,8 +6,6 @@ services:
     environment:
       POSTGRES_USER: 'hexya'
       POSTGRES_PASSWORD: 'secret'
-    networks:
-      - default
 
   hexya:
     image: hexya/hexya
@@ -19,7 +15,5 @@ services:
       HEXYA_DB_PASSWORD: 'secret'
       HEXYA_LOGSTDOUT: 'true'
       HEXYA_MODULES: 'github.com/hexya-erp/hexya-addons/sale'
-    networks:
-      - default
     ports:
-      - "127.0.0.1:8880:8080"
+      - "127.0.0.1:8080:8080"
