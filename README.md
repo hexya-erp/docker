@@ -19,10 +19,10 @@ $ docker run -p 8080:8080 \
     -e HEXYA_DB_PASSWORD=secret \
     -e HEXYA_LOGSTDOUT=true \
     -e HEXYA_MODULES="github.com/hexya-erp/hexya-addons/sale" \
-    --name hexya -t hexya
+    --name hexya -t hexya/hexya
 ```
 
-The alias of the container running Postgres must be db for Odoo to be able to connect to the Postgres server.
+The alias of the container running Postgres must be db for Hexya to be able to connect to the Postgres server.
 
 ### Login 
 
