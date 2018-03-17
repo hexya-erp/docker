@@ -1,4 +1,4 @@
-FROM golang:1.10-rc-alpine
+FROM golang:1.10-alpine
 
 MAINTAINER NDP Systèmes <contact@ndp-systemes.fr>
 
