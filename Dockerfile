@@ -6,9 +6,8 @@ RUN apk add --no-cache git nodejs-npm
 
 RUN go get github.com/hexya-erp/hexya
 
-RUN cd $GOPATH/src/github.com/hexya-erp \
-    && git clone https://github.com/hexya-erp/hexya-base \
-    && git clone https://github.com/hexya-erp/hexya-addons
+RUN go get -d github.com/hexya-erp/hexya-base/... || true
+RUN go get -d github.com/hexya-erp/hexya-addons/... || true
 
 RUN npm install -g less
 
