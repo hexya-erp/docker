@@ -8,14 +8,15 @@ services:
       POSTGRES_PASSWORD: 'secret'
 
   hexya:
-    image: hexya/hexya
+    image: hexya/hexya:latest
     environment:
       HEXYA_DB_HOST: 'db'
       HEXYA_DB_USER: 'hexya'
       HEXYA_DB_PASSWORD: 'secret'
       HEXYA_DB_SSLMODE: 'disable'
       HEXYA_LOGSTDOUT: 'true'
-      HEXYA_MODULES: 'github.com/hexya-erp/hexya-addons/sale'
+      HEXYA_MODULES: 'github.com/hexya-addons/web'
       HEXYA_SERVER_LANGUAGES: 'all'
+      GOGC: 20
     ports:
       - "127.0.0.1:8080:8080"

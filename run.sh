@@ -1,8 +1,9 @@
 #!/bin/sh
+cd /hexya-demo
 
 echo ""
 echo "1 - Generating Hexya..."
-hexya generate 2>/dev/null
+hexya generate .
 
 echo ""
 echo "2 - Updating db..."

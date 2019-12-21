@@ -1,15 +1,15 @@
-FROM golang:1.10-alpine
+FROM golang:1.13 AS builder
 
-MAINTAINER NDP Systèmes <contact@ndp-systemes.fr>
+ENV HEXYA_VERSION "v0.0.43"
+ENV CGO_ENABLED 0
+ENV USER root
 
-RUN apk add --no-cache git nodejs-npm
+RUN apt-get update && apt-get install -y --no-install-recommends node-less git
 
-RUN go get github.com/hexya-erp/hexya
+RUN cd / && git clone -b $HEXYA_VERSION https://github.com/hexya-erp/hexya.git
+RUN cd /hexya && go install && cd /
 
-RUN go get -d github.com/hexya-erp/hexya-base/... || true
-RUN go get -d github.com/hexya-erp/hexya-addons/... || true
-
-RUN npm install -g less
+RUN cd / && git clone https://github.com/hexya-erp/hexya-demo.git
 
 COPY run.sh /run.sh
 
